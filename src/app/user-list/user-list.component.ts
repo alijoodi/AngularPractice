@@ -12,4 +12,10 @@ import { IUser } from '../Models/iuser';
 export class UserListComponent {
   // @Input() users?: IUser[];
   users = input<IUser[]>();
+  selectedUserId?: string;
+
+  onSelectUser(id: string) {
+    this.selectedUserId = id;
+    console.log('Selected user with id' + id);
+  }
 }

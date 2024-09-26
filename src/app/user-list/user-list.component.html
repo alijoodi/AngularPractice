@@ -1,9 +1,9 @@
 <main>
   <ul id="users">
     @for (item of users(); track $index) {
-      
+
     <li>
-      <app-user [user]="item"></app-user>
+      <app-user (selectedUserId)="onSelectUser($event)" [user]="item"></app-user>
     </li>
     }
   </ul>
