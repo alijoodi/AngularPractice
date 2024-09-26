@@ -6,6 +6,7 @@ import {
   input,
   EventEmitter,
   Output,
+  output,
 } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { IUser } from '../Models/iuser';
@@ -18,12 +19,13 @@ import { IUser } from '../Models/iuser';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Output() selectedUserId = new EventEmitter();
-  user = input<IUser>();
+  // @Output() selectedUserId = new EventEmitter();
+  selectedUserId = output<string>();
+  user = input.required<IUser>();
   imagePath = computed(() => 'users/' + this.user()?.avatar);
 
   onUserClick() {
-    this.selectedUserId.emit(this.user()?.id);
+    this.selectedUserId.emit(this.user().id);
   }
 
   getRandomIndexUser() {
