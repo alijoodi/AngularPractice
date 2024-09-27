@@ -13,7 +13,7 @@ import { TaskListComponent } from '../task-list/task-list.component';
 })
 export class UserListComponent {
   // @Input() users?: IUser[];
-  selectedUserId?: string = 'u1';
+  selectedUserId?: string;
   users = input<IUser[]>();
 
   onSelectUser(id: string) {

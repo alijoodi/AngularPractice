@@ -1,11 +1,18 @@
 <main>
   <ul id="users">
-    @for (item of users(); track $index) {
-
+    @for (item of users(); track item.id) {
     <li>
-      <app-user (selectedUserId)="onSelectUser($event)" [user]="item"></app-user>
+      <app-user
+        (selectedUserId)="onSelectUser($event)"
+        [user]="item"
+      ></app-user>
     </li>
     }
   </ul>
-  <app-task-list userId="{{selectedUserId}}"></app-task-list>
+  @if(selectedUserId) {
+  <app-task-list userId="{{ selectedUserId }}"></app-task-list>
+  }
+  @else {
+    <p>No user selected</p>
+  }
 </main>
