@@ -1,7 +1,7 @@
 <p>{{ task().id }}</p>
 <article>
   <h2>{{ task().name }}</h2>
-  <time>{{ task().dueDate }}</time>
+  <time>{{ task().dueDate | date }}</time>
   <p class="actions">
     <button
       [class.completed]="task().completed"
