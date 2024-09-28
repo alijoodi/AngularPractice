@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { IUser } from '../Models/iuser';
 import { TaskComponent } from '../task/task.component';
-import { AddTaskComponent } from "../add-task/add-task.component";
+import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-task-list',
@@ -24,5 +24,8 @@ export class TaskListComponent {
 
   onStartAddTask() {
     this.isAddingTask = true;
+  }
+  onCancelAddTask(flag: boolean) {
+    this.isAddingTask = flag;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { IUser } from '../Models/iuser';
 
 @Component({
@@ -10,5 +10,8 @@ import { IUser } from '../Models/iuser';
 })
 export class AddTaskComponent {
   user = input<IUser>();
-
+  cancel = output<boolean>();
+  onCancelAddTask() {
+    this.cancel.emit(false);
+  }
 }
