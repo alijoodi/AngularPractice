@@ -1,7 +1,7 @@
 import { Component, input, output, signal } from '@angular/core';
-import { IUser } from '../Models/iuser';
+import { IUser } from '../../Models/iuser';
 import { FormsModule } from '@angular/forms';
-import { ITask } from '../Models/itask';
+import { ITask } from '../../Models/itask';
 @Component({
   selector: 'app-add-task',
   standalone: true,

@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { ITask } from '../Models/itask';
+import { ITask } from '../../Models/itask';
 import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-task',

@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
-import { IUser } from '../Models/iuser';
+import { DUMMY_USERS } from '../../dummy-users';
+import { IUser } from '../../Models/iuser';
 import { TaskComponent } from '../task/task.component';
 import { AddTaskComponent } from '../add-task/add-task.component';
 

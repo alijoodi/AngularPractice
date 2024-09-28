@@ -8,9 +8,9 @@ import {
   Output,
   output,
 } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
-import { IUser } from '../Models/iuser';
-import { CardComponent } from "../shared/card/card.component";
+import { DUMMY_USERS } from '../../dummy-users';
+import { IUser } from '../../Models/iuser';
+import { CardComponent } from '../../shared/card/card.component';
 
 @Component({
   selector: 'app-user',

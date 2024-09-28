@@ -1,7 +1,7 @@
 import { Component, Input, input } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
+import { DUMMY_USERS } from '../../dummy-users';
 import { UserComponent } from '../user/user.component';
-import { IUser } from '../Models/iuser';
+import { IUser } from '../../Models/iuser';
 import { TaskListComponent } from '../task-list/task-list.component';
 
 @Component({

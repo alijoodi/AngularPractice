@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './UserComponent/user/user.component';
 import { DUMMY_USERS } from './dummy-users';
-import { UserListComponent } from './user-list/user-list.component';
-import { TaskListComponent } from "./task-list/task-list.component";
+import { UserListComponent } from './UserComponent/user-list/user-list.component';
+import { TaskListComponent } from "./UserComponent/task-list/task-list.component";
 
 @Component({
   selector: 'app-root',
