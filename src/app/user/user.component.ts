@@ -23,6 +23,7 @@ export class UserComponent {
   selectedUserId = output<string>();
   user = input.required<IUser>();
   imagePath = computed(() => 'users/' + this.user()?.avatar);
+  selected = input.required<boolean>();
 
   onUserClick() {
     this.selectedUserId.emit(this.user().id);

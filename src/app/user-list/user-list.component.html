@@ -3,6 +3,7 @@
     @for (item of users(); track item.id) {
     <li>
       <app-user
+        [selected]="item.id === selectedUserId"
         (selectedUserId)="onSelectUser($event)"
         [user]="item"
       ></app-user>
@@ -11,8 +12,7 @@
   </ul>
   @if(selectedUserId) {
   <app-task-list userId="{{ selectedUserId }}"></app-task-list>
-  }
-  @else {
-    <p>No user selected</p>
+  } @else {
+  <p>No user selected</p>
   }
 </main>
