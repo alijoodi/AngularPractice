@@ -1,7 +1,10 @@
 <p>{{ task().id }}</p>
 <article>
-    <h2>{{task().name}}</h2>
-    <p class="actions">
-        <button>Completed</button>
-    </p>
+  <h2>{{ task().name }}</h2>
+  <time>{{ task().dueDate }}</time>
+  <p class="actions">
+    <button [disabled]="task().completed" (click)="onCompleteTask()">
+      {{ task().completed ? "completed" : "uncompleted" }}
+    </button>
+  </p>
 </article>
