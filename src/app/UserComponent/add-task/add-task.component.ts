@@ -32,7 +32,7 @@ export class AddTaskComponent {
     let t: ITask = {
       id: new Date().getTime().toString(),
       name: this.enteredTitle(),
-      dueDate: this.enteredTitle(),
+      dueDate: this.entereddueDate().toString(),
       completed: false,
       userId: this.user()?.id,
     };

@@ -7,12 +7,34 @@ import { IUser } from '../Models/iuser';
   providedIn: 'root',
 })
 export class UserService {
-  private users = DUMMY_USERS;
+  private users: IUser[] = [];
+
+  /**
+   *
+   */
+  constructor() {
+    let userInocalStorage = localStorage.getItem('users');
+    if (userInocalStorage) {
+      this.users = JSON.parse(userInocalStorage);
+    } else {
+      localStorage.setItem('users', JSON.stringify(DUMMY_USERS));
+    }
+  }
 
   getUsers() {
     return this.users;
   }
+
   getUserById(userId: string): IUser | undefined {
     return this.users.find((x) => x.id === userId);
+  }
+
+  addUser(user: IUser) {
+    this.users.push(user);
+    this.saveUsers();
+  }
+
+  saveUsers() {
+    localStorage.setItem('users', JSON.stringify(this.users));
   }
 }
