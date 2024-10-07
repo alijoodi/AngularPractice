@@ -6,6 +6,12 @@ import { DUMMY_USERS } from './dummy-users';
 import { UserListComponent } from './UserComponent/user-list/user-list.component';
 import { TaskListComponent } from './UserComponent/task-list/task-list.component';
 import { UserService } from './Services/user.service';
+import { InvestmentHeaderComponent } from './InvestmentComponent/investment-header/investment-header.component';
+import { InvestmentCalculatorComponent } from './InvestmentComponent/investment-calculator/investment-calculator.component';
+import { InvestmentResultComponent } from './InvestmentComponent/investment-result/investment-result.component';
+import { IInvestmentinput } from './Models/iinvestmentinput';
+import { AnnualInvestmentData } from './Models/annual-investment-data';
+import { InvestmentCalculatorService } from './Services/investment-calculator.service';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +22,34 @@ import { UserService } from './Services/user.service';
     UserComponent,
     UserListComponent,
     TaskListComponent,
+    InvestmentHeaderComponent,
+    InvestmentCalculatorComponent,
+    InvestmentResultComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  constructor(private userService: UserService) {
-  }
+  constructor(
+    private userService: UserService,
+    private investmentCalculatorService: InvestmentCalculatorService
+  ) {}
 
   userId: string = 'u1';
   users = signal(this.userService.getUsers());
   title = 'first-angular-app';
+
+  investmentComponentVisible = true;
+  todoComponent = !this.investmentComponentVisible;
+
+  investValue?: IInvestmentinput;
+  calculatedResult: AnnualInvestmentData[] = [];
+  onCalculateInvestResult(investValue: IInvestmentinput) {
+    this.investValue = investValue;
+    this.calculatedResult =
+      this.investmentCalculatorService.calculateInvestmentResults(investValue);
+
+      console.log(this.investValue);
+      console.log(this.calculatedResult);
+  }
 }
