@@ -1,1 +1,29 @@
 <!-- <p>{{ calculatedResult[0].Year }}</p> -->
+
+<div style="text-align: center">
+  @if(calculatedResultInput1.length==0) {
+  <p>Please enter some values and press Calculate button</p>
+  }
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Investment Value</th>
+        <th>Interest Year</th>
+        <th>Total Interest</th>
+        <th>Invested Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (investResult of calculatedResultInput1; track $index) {
+      <tr>
+        <td>{{ investResult.Year }}</td>
+        <td>{{ investResult.ValueEndOfYear | currency : "IRR" }}</td>
+        <td>{{ investResult.Interest | currency : "IRR"}}</td>
+        <td>{{ investResult.TotalInterest | currency : "IRR"}}</td>
+        <td>{{ investResult.TotalAmountInvested | currency : "IRR"}}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
