@@ -1,12 +1,7 @@
 @if(investmentComponentVisible) {
 <app-investment-header></app-investment-header>
-<app-investment-calculator
-  (investValueOutput)="onCalculateInvestResult($event)"
-></app-investment-calculator>
-<app-investment-result
-  [investValue]="investValue()!"
-  [calculatedResultInput]="calculatedResult()"
-></app-investment-result>
+<app-investment-calculator></app-investment-calculator>
+<app-investment-result></app-investment-result>
 } @else {
 <app-header></app-header>
 <app-user-list [users]="users()"></app-user-list>

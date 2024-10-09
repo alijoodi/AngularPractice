@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  inject,
   NgModule,
   Output,
   output,
@@ -10,6 +11,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { type IInvestmentinput } from '../../Models/iinvestmentinput';
 import { CurrencyPipe } from '@angular/common';
+import { InvestmentCalculatorService } from '../../Services/investment-calculator.service';
 @Component({
   selector: 'app-investment-calculator',
   standalone: true,
@@ -18,9 +20,7 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './investment-calculator.component.css',
 })
 export class InvestmentCalculatorComponent {
-  constructor() {}
-
-  investValueOutput = output<IInvestmentinput>();
+  investmentService = inject(InvestmentCalculatorService);
 
   investValue = signal<IInvestmentinput>({
     InitialInvestment: 1000,
@@ -29,7 +29,7 @@ export class InvestmentCalculatorComponent {
     AnnualInvestment: 1,
   });
 
-  ReturnValue() {
-    this.investValueOutput.emit(this.investValue());
+  Calculate() {
+    this.investmentService.calculateInvestmentResults(this.investValue());
   }
 }

@@ -43,11 +43,4 @@ export class AppComponent {
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
-
-  onCalculateInvestResult(investValue: IInvestmentinput) {
-    this.investValue.set(investValue);
-    this.calculatedResult.set(
-      this.investmentCalculatorService.calculateInvestmentResults(investValue)
-    );
-  }
 }
