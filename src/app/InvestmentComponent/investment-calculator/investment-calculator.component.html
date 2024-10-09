@@ -1,4 +1,4 @@
-@if(investValue) {
+@if(investValue()) {
 
 <form (ngSubmit)="ReturnValue()">
   <div class="input-group">
@@ -8,7 +8,7 @@
         type="number"
         id="initial-investment"
         name="initial-investment"
-        [(ngModel)]="investValue.InitialInvestment"
+        [(ngModel)]="investValue().InitialInvestment"
       />
     </p>
     <p>
@@ -17,7 +17,7 @@
         type="number"
         id="annual-investment"
         name="annual-investment"
-        [(ngModel)]="investValue.AnnualInvestment"
+        [(ngModel)]="investValue().AnnualInvestment"
       />
     </p>
   </div>
@@ -27,7 +27,7 @@
       <input
         type="number"
         id="expected-return"
-        [(ngModel)]="investValue.ExpectedReturn"
+        [(ngModel)]="investValue().ExpectedReturn"
         name="expected-return"
       />
     </p>
@@ -36,7 +36,7 @@
       <input
         type="number"
         id="duration"
-        [(ngModel)]="investValue.Duration"
+        [(ngModel)]="investValue().Duration"
         name="duration"
       />
     </p>

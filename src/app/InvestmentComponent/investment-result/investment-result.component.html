@@ -1,7 +1,7 @@
 <!-- <p>{{ calculatedResult[0].Year }}</p> -->
 
 <div style="text-align: center">
-  @if(calculatedResultInput1.length==0) {
+  @if(calculatedResultInput()?.length==0) {
   <p>Please enter some values and press Calculate button</p>
   }
   <table>
@@ -15,13 +15,13 @@
       </tr>
     </thead>
     <tbody>
-      @for (investResult of calculatedResultInput1; track $index) {
+      @for (investResult of calculatedResultInput(); track $index) {
       <tr>
         <td>{{ investResult.Year }}</td>
         <td>{{ investResult.ValueEndOfYear | currency : "IRR" }}</td>
-        <td>{{ investResult.Interest | currency : "IRR"}}</td>
-        <td>{{ investResult.TotalInterest | currency : "IRR"}}</td>
-        <td>{{ investResult.TotalAmountInvested | currency : "IRR"}}</td>
+        <td>{{ investResult.Interest | currency : "IRR" }}</td>
+        <td>{{ investResult.TotalInterest | currency : "IRR" }}</td>
+        <td>{{ investResult.TotalAmountInvested | currency : "IRR" }}</td>
       </tr>
       }
     </tbody>

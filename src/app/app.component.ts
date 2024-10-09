@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './UserComponent/user/user.component';
-import { DUMMY_USERS } from './dummy-users';
 import { UserListComponent } from './UserComponent/user-list/user-list.component';
 import { TaskListComponent } from './UserComponent/task-list/task-list.component';
 import { UserService } from './Services/user.service';
@@ -42,14 +41,13 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  investValue?: IInvestmentinput;
-  calculatedResult: AnnualInvestmentData[] = [];
-  onCalculateInvestResult(investValue: IInvestmentinput) {
-    this.investValue = investValue;
-    this.calculatedResult =
-      this.investmentCalculatorService.calculateInvestmentResults(investValue);
+  investValue = signal<IInvestmentinput | undefined>(undefined);
+  calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
 
-      console.log(this.investValue);
-      console.log(this.calculatedResult);
+  onCalculateInvestResult(investValue: IInvestmentinput) {
+    this.investValue.set(investValue);
+    this.calculatedResult.set(
+      this.investmentCalculatorService.calculateInvestmentResults(investValue)
+    );
   }
 }
