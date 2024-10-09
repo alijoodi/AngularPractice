@@ -1,9 +1,14 @@
-@if(investmentComponentVisible) {
+@if(componentType==1) {
+<app-header></app-header>
+<app-user-list [users]="users()"></app-user-list>
+} @else if(componentType==2) {
+
 <app-investment-header></app-investment-header>
 <app-investment-calculator></app-investment-calculator>
 <app-investment-result></app-investment-result>
-} @else {
-<app-header></app-header>
-<app-user-list [users]="users()"></app-user-list>
 
+} @else if(componentType==3) {
+<div dir="rtl" style="font-family: 'Times New Roman', Times, serif;">
+  <app-deep-dive-component-header></app-deep-dive-component-header>
+</div>
 }

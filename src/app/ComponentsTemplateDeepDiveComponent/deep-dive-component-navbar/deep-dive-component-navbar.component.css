@@ -1,0 +1,10 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.dashboard-Text {
+  margin: 10px;
+}
+
+.mat-toolbar-single-row {
+    background-color: azure;
+}

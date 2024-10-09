@@ -11,6 +11,7 @@ import { InvestmentResultComponent } from './InvestmentComponent/investment-resu
 import { IInvestmentinput } from './Models/iinvestmentinput';
 import { AnnualInvestmentData } from './Models/annual-investment-data';
 import { InvestmentCalculatorService } from './Services/investment-calculator.service';
+import { DeepDiveComponentHeaderComponent } from "./ComponentsTemplateDeepDiveComponent/deep-dive-component-header/deep-dive-component-header.component";
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ import { InvestmentCalculatorService } from './Services/investment-calculator.se
     InvestmentHeaderComponent,
     InvestmentCalculatorComponent,
     InvestmentResultComponent,
-  ],
+    DeepDiveComponentHeaderComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -41,6 +43,13 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
+  componentType: ComponentType = ComponentType.Dashboard;
+
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
+}
+export enum ComponentType {
+  User = 1,
+  Investment = 2,
+  Dashboard = 3,
 }
