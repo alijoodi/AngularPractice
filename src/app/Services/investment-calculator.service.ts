@@ -10,7 +10,7 @@ export class InvestmentCalculatorService {
 
   public calculateInvestmentResults(investmentVal?: IInvestmentinput) {
     if (investmentVal) {
-      
+      const result: AnnualInvestmentData[] = [];
       let investmentValue = investmentVal.InitialInvestment;
 
       for (let i = 0; i < investmentVal.Duration; i++) {
@@ -23,7 +23,7 @@ export class InvestmentCalculatorService {
           investmentValue -
           investmentVal.AnnualInvestment * year -
           investmentVal.InitialInvestment;
-        this.envestmentResult().push({
+        result.push({
           Year: year,
           Interest: interestEarnedInYear,
           ValueEndOfYear: investmentValue,
@@ -34,6 +34,7 @@ export class InvestmentCalculatorService {
             investmentVal.AnnualInvestment * year,
         });
       }
+      this.envestmentResult.set(result);
     }
   }
 }
