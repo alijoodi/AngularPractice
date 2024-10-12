@@ -8,7 +8,38 @@
 <app-investment-result></app-investment-result>
 
 } @else if(componentType==3) {
-<div dir="rtl" style="font-family: 'Times New Roman', Times, serif;">
+<div dir="rtl" style="font-family: 'Times New Roman', Times, serif">
   <app-deep-dive-component-header></app-deep-dive-component-header>
+  <app-deep-dive-component-dashboard-item
+    [headerInfo]="{
+      title: 'Server Status',
+      subTitle: 'This component show Server status'
+    }"
+    [imageInfo]="{ src: 'shibimages/shib1.jpg', alt: '' }"
+  >
+    <app-deep-dive-component-dashboard-item-server-status>
+    </app-deep-dive-component-dashboard-item-server-status>
+  </app-deep-dive-component-dashboard-item>
+
+  <app-deep-dive-component-dashboard-item
+    headerTitle="Tickets"
+    [headerInfo]="{ title: 'Tickets', subTitle: 'This component show tickets' }"
+    [imageInfo]="{ src: 'shibimages/shib2.jpg', alt: '' }"
+  >
+    <app-deep-dive-component-dashboard-item-tickets>
+    </app-deep-dive-component-dashboard-item-tickets>
+  </app-deep-dive-component-dashboard-item>
+
+  <app-deep-dive-component-dashboard-item
+    headerTitle="Traffic"
+    [headerInfo]="{
+      title: 'Traffic',
+      subTitle: 'This component show servers traffic'
+    }"
+    [imageInfo]="{ src: 'shibimages/shib3.jpg', alt: '' }"
+  >
+    <app-deep-dive-component-dashboard-item-traffic>
+    </app-deep-dive-component-dashboard-item-traffic>
+  </app-deep-dive-component-dashboard-item>
 </div>
 }

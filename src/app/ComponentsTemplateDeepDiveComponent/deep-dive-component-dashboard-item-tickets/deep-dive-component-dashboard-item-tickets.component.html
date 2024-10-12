@@ -1,1 +1,23 @@
-<p>deep-dive-component-dashboard-item-tickets works!</p>
+<button mat-button (click)="addTicketVisible()">Add new ticket</button>
+
+@if(addTicketFlag()) {
+
+<form class="example-form" (ngSubmit)="SaveTicket()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title" [(ngModel)]="title" name="title" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      placeholder="Description about ticket"
+      [(ngModel)]="description"
+      name="description"
+    ></textarea>
+  </mat-form-field>
+  <button mat-button type="submit">Save</button>
+</form>
+
+}

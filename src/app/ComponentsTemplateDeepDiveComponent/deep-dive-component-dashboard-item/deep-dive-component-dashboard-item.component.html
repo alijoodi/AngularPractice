@@ -1,0 +1,13 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ headerInfo().title }}</mat-card-title>
+    <mat-card-subtitle>{{ headerInfo().subTitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="imageInfo().src" [alt]="imageInfo().alt" />
+  <mat-card-content>
+    <mat-divider>
+    </mat-divider>
+    <ng-content> </ng-content>
+  </mat-card-content>
+</mat-card>
