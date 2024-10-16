@@ -2,8 +2,12 @@
     min-width: 150px;
     max-width: 500px;
     width: 100%;
+    margin: 7px;
   }
   
   .example-full-width {
     width: 100%;
+  }
+  .mat-button {
+    margin: 5px;
   }

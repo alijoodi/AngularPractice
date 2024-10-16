@@ -1,20 +1,32 @@
-<button mat-button (click)="addTicketVisible()">Add new ticket</button>
+<button class="mat-button" mat-button (click)="addTicketVisible()">
+  Add new ticket
+</button>
 
 @if(addTicketFlag()) {
 
-<form class="example-form" (ngSubmit)="SaveTicket()">
+<form #form
+  class="example-form"
+  (ngSubmit)="SaveTicket(titleInput, descriptionElement.value)"
+>
   <mat-form-field class="example-full-width">
     <mat-label>Title</mat-label>
-    <input matInput placeholder="Title" [(ngModel)]="title" name="title" />
+    <input
+      matInput
+      placeholder="Title"
+      [(ngModel)]="title"
+      name="title"
+      #titleInput
+    />
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Description</mat-label>
     <textarea
       matInput
-      placeholder="Description about ticket"
+      placeholder="لطفا توضیحات تیکت خود را به طور کامل شرح دهید"
       [(ngModel)]="description"
       name="description"
+      #descriptionElement
     ></textarea>
   </mat-form-field>
   <button mat-button type="submit">Save</button>

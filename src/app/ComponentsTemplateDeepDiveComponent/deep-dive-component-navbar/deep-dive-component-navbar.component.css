@@ -8,3 +8,6 @@
 .mat-toolbar-single-row {
     background-color: azure;
 }
+.mat-mdc-menu-item {
+  text-align: right !important;
+}

@@ -1,2 +1,3 @@
-
-<p>deep-dive-component-dashboard-item-server-status works!</p>
+<p [style.color]="status == 'online' ? 'green' : 'red'">
+  {{ status }}
+</p>

@@ -1,4 +1,11 @@
-import { Component, Inject, Signal, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Signal,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -25,8 +32,14 @@ export class DeepDiveComponentDashboardItemTicketsComponent {
   title = signal<string>('');
   description = signal<string>('');
   addTicketFlag = signal<boolean>(false);
+  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+  private titleField =
+    viewChild.required<ElementRef<HTMLInputElement>>('titleInput');
+  private descriptionElement =
+    viewChild.required<ElementRef<HTMLInputElement>>('descriptionElement');
 
-  SaveTicket() {
+  SaveTicket(titleElement: HTMLInputElement, description: string): void {
+    // console.dir(titleElement.value);
     this.ticketService.AddTicket({
       id: Guid.MakeNew().ToString(),
       title: this.title(),
@@ -34,7 +47,9 @@ export class DeepDiveComponentDashboardItemTicketsComponent {
     });
 
     this.addTicketFlag.set(!this.addTicketFlag());
-    this.resetForm();
+    // this.resetForm();
+    console.log(titleElement.value);
+    this.form().nativeElement.reset();
   }
 
   addTicketVisible(): void {
