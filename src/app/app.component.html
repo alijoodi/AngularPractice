@@ -42,4 +42,10 @@
     </app-deep-dive-component-dashboard-item-traffic>
   </app-deep-dive-component-dashboard-item>
 </div>
+} @else if (componentType===4) {
+<div>
+  <input type="number" [(ngModel)]="rect().width" name="rectWidth" />
+  <input type="number" [(ngModel)]="rect().height" name="rectHeight" />
+  <app-rect [(size)]="rect"></app-rect>
+</div>
 }

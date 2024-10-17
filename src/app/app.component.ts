@@ -11,11 +11,13 @@ import { InvestmentResultComponent } from './InvestmentComponent/investment-resu
 import { IInvestmentinput } from './Models/iinvestmentinput';
 import { AnnualInvestmentData } from './Models/annual-investment-data';
 import { InvestmentCalculatorService } from './Services/investment-calculator.service';
-import { DeepDiveComponentHeaderComponent } from "./ComponentsTemplateDeepDiveComponent/deep-dive-component-header/deep-dive-component-header.component";
-import { DeepDiveComponentDashboardItemComponent } from "./ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item/deep-dive-component-dashboard-item.component";
-import { DeepDiveComponentDashboardItemTrafficComponent } from "./ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-traffic/deep-dive-component-dashboard-item-traffic.component";
-import { DeepDiveComponentDashboardItemTicketsComponent } from "./ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-tickets/deep-dive-component-dashboard-item-tickets.component";
-import { DeepDiveComponentDashboardItemServerStatusComponent } from "./ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-server-status/deep-dive-component-dashboard-item-server-status.component";
+import { DeepDiveComponentHeaderComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-header/deep-dive-component-header.component';
+import { DeepDiveComponentDashboardItemComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item/deep-dive-component-dashboard-item.component';
+import { DeepDiveComponentDashboardItemTrafficComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-traffic/deep-dive-component-dashboard-item-traffic.component';
+import { DeepDiveComponentDashboardItemTicketsComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-tickets/deep-dive-component-dashboard-item-tickets.component';
+import { DeepDiveComponentDashboardItemServerStatusComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-server-status/deep-dive-component-dashboard-item-server-status.component';
+import { FormsModule } from '@angular/forms';
+import { RectComponent } from "./rect/rect.component";
 
 @Component({
   selector: 'app-root',
@@ -33,7 +35,9 @@ import { DeepDiveComponentDashboardItemServerStatusComponent } from "./Component
     DeepDiveComponentDashboardItemComponent,
     DeepDiveComponentDashboardItemTrafficComponent,
     DeepDiveComponentDashboardItemTicketsComponent,
-    DeepDiveComponentDashboardItemServerStatusComponent
+    DeepDiveComponentDashboardItemServerStatusComponent,
+    FormsModule,
+    RectComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -47,11 +51,15 @@ export class AppComponent {
   userId: string = 'u1';
   users = signal(this.userService.getUsers());
   title = 'first-angular-app';
+  rect = signal<{ width: string; height: string }>({
+    width: '200',
+    height: '200',
+  });
 
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.Dashboard;
+  componentType: ComponentType = ComponentType.Rect;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
@@ -60,4 +68,5 @@ export enum ComponentType {
   User = 1,
   Investment = 2,
   Dashboard = 3,
+  Rect = 4,
 }
