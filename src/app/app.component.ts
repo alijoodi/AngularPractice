@@ -17,7 +17,8 @@ import { DeepDiveComponentDashboardItemTrafficComponent } from './ComponentsTemp
 import { DeepDiveComponentDashboardItemTicketsComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-tickets/deep-dive-component-dashboard-item-tickets.component';
 import { DeepDiveComponentDashboardItemServerStatusComponent } from './ComponentsTemplateDeepDiveComponent/deep-dive-component-dashboard-item-server-status/deep-dive-component-dashboard-item-server-status.component';
 import { FormsModule } from '@angular/forms';
-import { RectComponent } from "./rect/rect.component";
+import { RectComponent } from './rect/rect.component';
+import { TestDirectiveComponent } from './test-directive/test-directive.component';
 
 @Component({
   selector: 'app-root',
@@ -37,8 +38,9 @@ import { RectComponent } from "./rect/rect.component";
     DeepDiveComponentDashboardItemTicketsComponent,
     DeepDiveComponentDashboardItemServerStatusComponent,
     FormsModule,
-    RectComponent
-],
+    RectComponent,
+    TestDirectiveComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -59,7 +61,7 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.Rect;
+  componentType: ComponentType = ComponentType.TestDirective;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
@@ -69,4 +71,5 @@ export enum ComponentType {
   Investment = 2,
   Dashboard = 3,
   Rect = 4,
+  TestDirective = 5,
 }
