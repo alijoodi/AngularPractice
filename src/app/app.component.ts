@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { RectComponent } from './rect/rect.component';
 import { TestDirectiveComponent } from './test-directive/test-directive.component';
 import { LogDirective } from './Directives/log.directive';
+import { PipeTestComponent } from "./pipe-test/pipe-test.component";
 
 @Component({
   selector: 'app-root',
@@ -41,7 +42,8 @@ import { LogDirective } from './Directives/log.directive';
     FormsModule,
     RectComponent,
     TestDirectiveComponent,
-  ],
+    PipeTestComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   hostDirectives: [LogDirective],
@@ -63,7 +65,7 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.TestDirective;
+  componentType: ComponentType = ComponentType.Pipe;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
@@ -74,4 +76,5 @@ export enum ComponentType {
   Dashboard = 3,
   Rect = 4,
   TestDirective = 5,
+  Pipe = 6,
 }
