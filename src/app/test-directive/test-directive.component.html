@@ -1,5 +1,14 @@
 <p>test-directive works!</p>
-<a appSafeLink queryParam="mynwqapp" li href="https://www.google.com"> google </a>
+<a appSafeLink queryParam="mynwqapp" li href="https://www.google.com">
+  google
+</a>
 <a appSafeLink li href="https://www.google.com"> google </a>
 <a appSafeLink li href="https://www.google.com"> google </a>
 <button (click)="onClick()">Messagebox</button>
+<div>
+  <ng-template appAuth="admin">
+    <p>this text for addmin user</p>
+  </ng-template>
+</div>
+<p *appAuth="'admin'" class="protected-content admin">this text for addmin user</p>
+<p appLog>LogDirective</p>

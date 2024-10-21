@@ -19,6 +19,7 @@ import { DeepDiveComponentDashboardItemServerStatusComponent } from './Component
 import { FormsModule } from '@angular/forms';
 import { RectComponent } from './rect/rect.component';
 import { TestDirectiveComponent } from './test-directive/test-directive.component';
+import { LogDirective } from './Directives/log.directive';
 
 @Component({
   selector: 'app-root',
@@ -39,10 +40,11 @@ import { TestDirectiveComponent } from './test-directive/test-directive.componen
     DeepDiveComponentDashboardItemServerStatusComponent,
     FormsModule,
     RectComponent,
-    TestDirectiveComponent
+    TestDirectiveComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  hostDirectives: [LogDirective],
 })
 export class AppComponent {
   constructor(

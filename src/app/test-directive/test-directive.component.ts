@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SafeLinkDirective } from '../Directives/appsafelink.directive';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageboxComponent } from '../messagebox/messagebox.component';
-
+import { AuthDirective } from '../Directives/auth/auth.directive';
+import { LogDirective } from '../Directives/log.directive';
 @Component({
   selector: 'app-test-directive',
   standalone: true,
-  imports: [SafeLinkDirective],
+  imports: [SafeLinkDirective, AuthDirective],
   templateUrl: './test-directive.component.html',
   styleUrl: './test-directive.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
