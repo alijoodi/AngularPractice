@@ -1,0 +1,37 @@
+@for (task of taskList; track task.id) {
+<mat-card
+  appearance="outlined"
+  style="
+    background-color: black;
+    border-color: chocolate;
+    margin: 10px;
+    width: 600px;
+  "
+>
+  <mat-card-header>
+    <span style="width: 100px">
+      {{ task.title }}
+    </span>
+    <span
+      style="
+        background-color: rgb(252, 235, 3);
+        border-radius: 25px;
+        color: black;
+        font-weight: bold;
+        width: fit-content;
+        margin: 1x;
+        padding: 3px;
+      "
+      >{{ task.status }}</span
+    >
+  </mat-card-header>
+  <mat-card-content>
+    {{ task.description }}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button style="width: 100px;left: 450px;" (click)="changeStatus(task.id)">
+      ChangeStatus
+    </button>
+  </mat-card-actions>
+</mat-card>
+}

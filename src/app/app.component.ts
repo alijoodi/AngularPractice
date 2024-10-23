@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { RectComponent } from './rect/rect.component';
 import { TestDirectiveComponent } from './test-directive/test-directive.component';
 import { LogDirective } from './Directives/log.directive';
-import { PipeTestComponent } from "./pipe-test/pipe-test.component";
+import { PipeTestComponent } from './pipe-test/pipe-test.component';
+import { DPItaskComponent } from "./DependencyInjectionDeepDive/dpitask/dpitask.component";
 
 @Component({
   selector: 'app-root',
@@ -42,7 +43,8 @@ import { PipeTestComponent } from "./pipe-test/pipe-test.component";
     FormsModule,
     RectComponent,
     TestDirectiveComponent,
-    PipeTestComponent
+    PipeTestComponent,
+    DPItaskComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -65,7 +67,7 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.Pipe;
+  componentType: ComponentType = ComponentType.DpiTask;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
@@ -77,4 +79,5 @@ export enum ComponentType {
   Rect = 4,
   TestDirective = 5,
   Pipe = 6,
+  DpiTask = 7,
 }

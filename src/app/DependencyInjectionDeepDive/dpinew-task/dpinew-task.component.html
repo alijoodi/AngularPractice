@@ -1,0 +1,32 @@
+<mat-card class="example-card" appearance="outlined" style="margin: 10px;">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>Add new task</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSave()" #form>
+      <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Title"
+          name="title"
+          [(ngModel)]="task().title"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          placeholder="Description"
+          name="description"
+          [(ngModel)]="task().description"
+        ></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onSave()">Save</button>
+  </mat-card-actions>
+</mat-card>

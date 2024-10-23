@@ -48,10 +48,10 @@
   <input type="number" [(ngModel)]="rect().height" name="rectHeight" />
   <app-rect [(size)]="rect"></app-rect>
 </div>
-}
-@else if (componentType==5) {
-  <app-test-directive></app-test-directive>
-}
-@else if (componentType==6) {
-  <app-pipe-test></app-pipe-test>
+} @else if (componentType==5) {
+<app-test-directive></app-test-directive>
+} @else if (componentType==6) {
+<app-pipe-test></app-pipe-test>
+} @else if (componentType==7) {
+  <app-dpitask></app-dpitask>
 }
