@@ -4,6 +4,9 @@ import { Dpitask } from '../../Models/dpitask';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+import {
+  TaskStatusOptionsProvider,
+} from '../../Models/enumerations';
 
 @Component({
   selector: 'app-dpitask-list',
@@ -11,6 +14,7 @@ import { MatBadgeModule } from '@angular/material/badge';
   imports: [MatButtonModule, MatCardModule, MatBadgeModule],
   templateUrl: './dpitask-list.component.html',
   styleUrl: './dpitask-list.component.css',
+  providers: [TaskStatusOptionsProvider],
 })
 export class DPItaskListComponent {
   changeStatus(id: string) {

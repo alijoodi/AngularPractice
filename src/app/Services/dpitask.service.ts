@@ -1,16 +1,19 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Dpitask } from '../Models/dpitask';
+import { LoggingService } from './logging.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DpitaskService {
+  private loggingService = inject(LoggingService);
   taskList = signal<Dpitask[]>([]);
 
   constructor() {}
 
   addTask(task: Dpitask) {
     this.taskList().push(task);
+    this.loggingService.log('addTask');
   }
 
   getTask(): Dpitask[] {
