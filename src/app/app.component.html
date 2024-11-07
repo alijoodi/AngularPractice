@@ -1,57 +1,67 @@
-@if(componentType==1) {
-<app-header></app-header>
-<app-user-list [users]="users()"></app-user-list>
-} @else if(componentType==2) {
-
-<app-investment-header></app-investment-header>
-<app-investment-calculator></app-investment-calculator>
-<app-investment-result></app-investment-result>
-
-} @else if(componentType==3) {
-<div dir="rtl" style="font-family: 'Times New Roman', Times, serif">
-  <app-deep-dive-component-header></app-deep-dive-component-header>
-  <app-deep-dive-component-dashboard-item
-    [headerInfo]="{
-      title: 'Server Status',
-      subTitle: 'This component show Server status'
-    }"
-    [imageInfo]="{ src: 'shibimages/shib1.jpg', alt: '' }"
-  >
-    <app-deep-dive-component-dashboard-item-server-status>
-    </app-deep-dive-component-dashboard-item-server-status>
-  </app-deep-dive-component-dashboard-item>
-
-  <app-deep-dive-component-dashboard-item
-    headerTitle="Tickets"
-    [headerInfo]="{ title: 'Tickets', subTitle: 'This component show tickets' }"
-    [imageInfo]="{ src: 'shibimages/shib2.jpg', alt: '' }"
-  >
-    <app-deep-dive-component-dashboard-item-tickets>
-    </app-deep-dive-component-dashboard-item-tickets>
-  </app-deep-dive-component-dashboard-item>
-
-  <app-deep-dive-component-dashboard-item
-    headerTitle="Traffic"
-    [headerInfo]="{
-      title: 'Traffic',
-      subTitle: 'This component show servers traffic'
-    }"
-    [imageInfo]="{ src: 'shibimages/shib3.jpg', alt: '' }"
-  >
-    <app-deep-dive-component-dashboard-item-traffic>
-    </app-deep-dive-component-dashboard-item-traffic>
-  </app-deep-dive-component-dashboard-item>
-</div>
-} @else if (componentType===4) {
-<div>
-  <input type="number" [(ngModel)]="rect().width" name="rectWidth" />
-  <input type="number" [(ngModel)]="rect().height" name="rectHeight" />
-  <app-rect [(size)]="rect"></app-rect>
-</div>
-} @else if (componentType==5) {
-<app-test-directive></app-test-directive>
-} @else if (componentType==6) {
-<app-pipe-test></app-pipe-test>
-} @else if (componentType==7) {
-  <app-dpitask></app-dpitask>
+@switch (componentType) {
+  @case (1) {
+    <app-header></app-header>
+    <app-user-list [users]="users()"></app-user-list>
+  }
+  @case (2) {
+    <app-investment-header></app-investment-header>
+    <app-investment-calculator></app-investment-calculator>
+    <app-investment-result></app-investment-result>
+  }
+  @case (3) {
+    <div dir="rtl" style="font-family: 'Times New Roman', Times, serif">
+      <app-deep-dive-component-header></app-deep-dive-component-header>
+      <app-deep-dive-component-dashboard-item
+        [headerInfo]="{
+          title: 'Server Status',
+          subTitle: 'This component show Server status'
+        }"
+        [imageInfo]="{ src: 'shibimages/shib1.jpg', alt: '' }"
+      >
+        <app-deep-dive-component-dashboard-item-server-status>
+        </app-deep-dive-component-dashboard-item-server-status>
+      </app-deep-dive-component-dashboard-item>
+    
+      <app-deep-dive-component-dashboard-item
+        headerTitle="Tickets"
+        [headerInfo]="{ title: 'Tickets', subTitle: 'This component show tickets' }"
+        [imageInfo]="{ src: 'shibimages/shib2.jpg', alt: '' }"
+      >
+        <app-deep-dive-component-dashboard-item-tickets>
+        </app-deep-dive-component-dashboard-item-tickets>
+      </app-deep-dive-component-dashboard-item>
+    
+      <app-deep-dive-component-dashboard-item
+        headerTitle="Traffic"
+        [headerInfo]="{
+          title: 'Traffic',
+          subTitle: 'This component show servers traffic'
+        }"
+        [imageInfo]="{ src: 'shibimages/shib3.jpg', alt: '' }"
+      >
+        <app-deep-dive-component-dashboard-item-traffic>
+        </app-deep-dive-component-dashboard-item-traffic>
+      </app-deep-dive-component-dashboard-item>
+    </div>
+  }
+  @case (4) {
+    <div>
+      <input type="number" [(ngModel)]="rect().width" name="rectWidth" />
+      <input type="number" [(ngModel)]="rect().height" name="rectHeight" />
+      <app-rect [(size)]="rect"></app-rect>
+    </div>
+  }
+  @case (5) {
+    <app-test-directive></app-test-directive>
+  }
+  @case (6) {
+    <app-pipe-test></app-pipe-test>
+  }
+  @case (7) {
+    <app-dpitask></app-dpitask>
+  }
+  @case (8) {
+    <app-counter></app-counter>
+    <app-message></app-message>
+  }
 }

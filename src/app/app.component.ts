@@ -21,7 +21,9 @@ import { RectComponent } from './rect/rect.component';
 import { TestDirectiveComponent } from './test-directive/test-directive.component';
 import { LogDirective } from './Directives/log.directive';
 import { PipeTestComponent } from './pipe-test/pipe-test.component';
-import { DPItaskComponent } from "./DependencyInjectionDeepDive/dpitask/dpitask.component";
+import { DPItaskComponent } from './DependencyInjectionDeepDive/dpitask/dpitask.component';
+import { CounterComponent } from './ChangeDetectionDeepDive/counter/counter.component';
+import { MessageComponent } from './ChangeDetectionDeepDive/message/message.component';
 
 @Component({
   selector: 'app-root',
@@ -44,8 +46,10 @@ import { DPItaskComponent } from "./DependencyInjectionDeepDive/dpitask/dpitask.
     RectComponent,
     TestDirectiveComponent,
     PipeTestComponent,
-    DPItaskComponent
-],
+    DPItaskComponent,
+    CounterComponent,
+    MessageComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   hostDirectives: [LogDirective],
@@ -67,7 +71,7 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.DpiTask;
+  componentType: ComponentType = ComponentType.ChangeDetection;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
@@ -80,4 +84,5 @@ export enum ComponentType {
   TestDirective = 5,
   Pipe = 6,
   DpiTask = 7,
+  ChangeDetection = 8,
 }

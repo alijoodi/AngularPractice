@@ -1,0 +1,7 @@
+<mat-list role="list">
+  @for (message of messageList(); track $index) {
+  <mat-list-item role="listitem" style="color: rgb(216, 219, 221)">
+    <span class="messageContent">{{ message }}</span>
+  </mat-list-item>
+  }
+</mat-list>
