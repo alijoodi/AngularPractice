@@ -24,6 +24,7 @@ import { PipeTestComponent } from './pipe-test/pipe-test.component';
 import { DPItaskComponent } from './DependencyInjectionDeepDive/dpitask/dpitask.component';
 import { CounterComponent } from './ChangeDetectionDeepDive/counter/counter.component';
 import { MessageComponent } from './ChangeDetectionDeepDive/message/message.component';
+import { ObservableDeepDiveComponent } from './Observable/observable-deep-dive/observable-deep-dive.component';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +50,7 @@ import { MessageComponent } from './ChangeDetectionDeepDive/message/message.comp
     DPItaskComponent,
     CounterComponent,
     MessageComponent,
+    ObservableDeepDiveComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -71,7 +73,7 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.ChangeDetection;
+  componentType: ComponentType = ComponentType.RxJs;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
@@ -85,4 +87,5 @@ export enum ComponentType {
   Pipe = 6,
   DpiTask = 7,
   ChangeDetection = 8,
+  RxJs = 9,
 }
