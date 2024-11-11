@@ -6,7 +6,8 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { interval, map } from 'rxjs';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { BehaviorSubject, interval, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-observable-deep-dive',
@@ -15,38 +16,23 @@ import { interval, map } from 'rxjs';
   templateUrl: './observable-deep-dive.component.html',
   styleUrl: './observable-deep-dive.component.css',
 })
-export class ObservableDeepDiveComponent implements OnInit {
+export class ObservableDeepDiveComponent {
   clickCount = signal(0);
-  
+  clickCount2 = signal(1);
+  count$ = toObservable(this.clickCount);
+
   constructor() {
+    this.count$.subscribe((val) =>
+      console.log(`click on button for ${this.clickCount()} times in subscription`)
+    );
+
     effect(() => {
-      console.log(`Button clicked ${this.clickCount()} times`);
+      console.log(`click on button2 for ${this.clickCount2()} times`);
     });
   }
 
   clickButton() {
-    this.clickCount.update((prevValue) => prevValue + 1);
-  }
-
-
-  private destroyRef = inject(DestroyRef);
-  ngOnInit(): void {
-    const subscaription = interval(1000)
-      .pipe(
-        map((val) => val + 3),
-        map((val) => val * 2)
-      )
-      .subscribe({
-        next(value) {
-          console.log(value);
-        },
-        complete() {
-          console.log('completeObservableDeepDive');
-        },
-      });
-
-    this.destroyRef.onDestroy(() => {
-      subscaription.unsubscribe();
-    });
+    this.clickCount.update((val) => val + 1);
+    this.clickCount2.update((val) => val + 1);
   }
 }
