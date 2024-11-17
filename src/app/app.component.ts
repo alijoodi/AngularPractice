@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './UserComponent/user/user.component';
@@ -25,6 +25,8 @@ import { DPItaskComponent } from './DependencyInjectionDeepDive/dpitask/dpitask.
 import { CounterComponent } from './ChangeDetectionDeepDive/counter/counter.component';
 import { MessageComponent } from './ChangeDetectionDeepDive/message/message.component';
 import { ObservableDeepDiveComponent } from './Observable/observable-deep-dive/observable-deep-dive.component';
+import { ErrorService } from './Services/error.service';
+import { CustomErrorComponent } from './custom-error/custom-error.component';
 
 @Component({
   selector: 'app-root',
@@ -51,6 +53,7 @@ import { ObservableDeepDiveComponent } from './Observable/observable-deep-dive/o
     CounterComponent,
     MessageComponent,
     ObservableDeepDiveComponent,
+    CustomErrorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -59,8 +62,11 @@ import { ObservableDeepDiveComponent } from './Observable/observable-deep-dive/o
 export class AppComponent {
   constructor(
     private userService: UserService,
-    private investmentCalculatorService: InvestmentCalculatorService
-  ) {}
+    private investmentCalculatorService: InvestmentCalculatorService,
+    private errorService: ErrorService
+  ) {
+    this.errorService.showMessage('please show my error message', 'error');
+  }
 
   userId: string = 'u1';
   users = signal(this.userService.getUsers());
@@ -77,7 +83,10 @@ export class AppComponent {
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
+
+
 }
+
 export enum ComponentType {
   User = 1,
   Investment = 2,
