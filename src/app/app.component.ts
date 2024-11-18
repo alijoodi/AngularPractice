@@ -27,6 +27,7 @@ import { MessageComponent } from './ChangeDetectionDeepDive/message/message.comp
 import { ObservableDeepDiveComponent } from './Observable/observable-deep-dive/observable-deep-dive.component';
 import { ErrorService } from './Services/error.service';
 import { CustomErrorComponent } from './custom-error/custom-error.component';
+import { UserInputDeepDiveLoginComponent } from './UserInputDeepDive/user-input-deep-dive-login/user-input-deep-dive-login.component';
 
 @Component({
   selector: 'app-root',
@@ -54,6 +55,7 @@ import { CustomErrorComponent } from './custom-error/custom-error.component';
     MessageComponent,
     ObservableDeepDiveComponent,
     CustomErrorComponent,
+    UserInputDeepDiveLoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -65,7 +67,7 @@ export class AppComponent {
     private investmentCalculatorService: InvestmentCalculatorService,
     private errorService: ErrorService
   ) {
-    this.errorService.showMessage('please show my error message', 'error');
+    // this.errorService.showMessage('please show my error message', 'error');
   }
 
   userId: string = 'u1';
@@ -79,12 +81,10 @@ export class AppComponent {
   investmentComponentVisible = true;
   todoComponent = !this.investmentComponentVisible;
 
-  componentType: ComponentType = ComponentType.RxJs;
+  componentType: ComponentType = ComponentType.UserInput;
 
   investValue = signal<IInvestmentinput | undefined>(undefined);
   calculatedResult = signal<AnnualInvestmentData[] | undefined>(undefined);
-
-
 }
 
 export enum ComponentType {
@@ -97,4 +97,5 @@ export enum ComponentType {
   DpiTask = 7,
   ChangeDetection = 8,
   RxJs = 9,
+  UserInput = 10,
 }
