@@ -1,37 +1,51 @@
-<form class="example-form" [formGroup]="frm">
-  <h2>LoginForm</h2>
-  <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input
-      type="email"
-      matInput
-      formControlName="emailFormControl"
-      [errorStateMatcher]="matcher"
-      placeholder="Ex. pat@example.com"
-    />
-    <mat-hint></mat-hint>
-    @if (frm.controls.emailFormControl.hasError('email') &&
-    !frm.controls.emailFormControl.hasError('required')) {
-    <mat-error>Please enter a valid email address</mat-error>
-    } @if (frm.controls.emailFormControl.hasError('required')) {
-    <mat-error>Email is <strong>required</strong></mat-error>
-    }
-  </mat-form-field>
+<form class="Absolute-Center form flex flex-center" [formGroup]="frm">
+  <div class="Center-Container">
+    <h4>ورود کاربران</h4>
+    <mat-form-field class="example-full-width">
+      <mat-label>ایمیل</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ex. pat@example.com"
+      />
+      <mat-hint></mat-hint>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
-    <input
-      type="password"
-      matInput
-      formControlName="passwordFormControl"
-      [errorStateMatcher]="matcher"
-    />
-    <mat-hint></mat-hint>
-    @if ( !frm.controls.passwordFormControl.hasError('minLength(5)')) {
-    <mat-error>Please enter a strong password at least 5 characters</mat-error>
-    } @if (frm.controls.passwordFormControl.hasError('required')) {
-    <mat-error>Password is <strong>required</strong></mat-error>
-    }
-  </mat-form-field>
-  <button (click)="login()">Login</button>
+      <!-- @if(frm.invalid ) { @if (frm.controls.emailFormControl.hasError('email')
+      && !frm.controls.emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+      } @if (frm.controls.emailFormControl.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+      } } -->
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>کلمه عبور</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="passwordFormControl"
+        [errorStateMatcher]="matcher"
+      />
+      <!-- <mat-hint></mat-hint>
+      @if ( !frm.controls.passwordFormControl.hasError('minLength(5)')) {
+      <mat-error
+        >Please enter a strong password at least 5 characters</mat-error
+      >
+      } @if (frm.controls.passwordFormControl.hasError('required')) {
+      <mat-error>Password is <strong>required</strong></mat-error>
+      } -->
+    </mat-form-field>
+    <div>
+      <button
+        class="mat-button"
+        style="width: 250px"
+        mat-raised-button
+        (click)="login()"
+      >
+        ورود
+      </button>
+    </div>
+  </div>
 </form>

@@ -1,9 +1,27 @@
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+.Center-Container {
+  position: relative;
+}
+
+.Absolute-Center {
+  min-width: 300px !important;
+  min-height: 300px !important;
+  width: 30%;
+  height: 30%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  direction: rtl;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.button-center {
+  text-align: center;
+}
